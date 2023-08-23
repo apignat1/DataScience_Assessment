@@ -1,6 +1,5 @@
-from urllib.request import urlopen
+import pandas as pd
 url = "https://en.wikipedia.org/wiki/List_of_natural_disasters_by_death_toll"
-page = urlopen(url)
-html_bytes = page.read()
-html = html_bytes.decode("utf-8")
-print(html)
+df_list = pd.read_html(url)
+century_20 = df_list[1]
+century_21 = df_list[2]
